@@ -37,8 +37,8 @@
             let captureRegion = captureGameRegion();  // 获取一张截图
             let res = captureRegion.Find(recognitionObject);
             if (!res.isEmpty()) {
-                log.info("---------您已抵达战场---------");
-                log.info("第{i}次识别成功",i);
+                //log.info("---------您已抵达战场---------");
+                //log.info("第{i}次识别成功",i);
                 template.Dispose();
                 captureRegion.Dispose();
                 await fight2(test);
@@ -51,7 +51,7 @@
     //这个是带提纳里的
     async function fight(testTime=100){
         log.info("---------开打开打！！！!!---------")
-        log.info("延迟为{testTime}",testTime);
+        //log.info("延迟为{testTime}",testTime);
 
         //第一次摔
         await sleep(200);
@@ -171,7 +171,7 @@
 
     //这个是带孙子的
     async function fight2(testTime=100){
-
+        log.info("---------开打开打！！！!!---------")
         await sleep(150);
         keyDown("VK_LSHIFT")
         await sleep(50);
@@ -284,7 +284,7 @@
 
 
 
-        await sleep(8000);
+        await sleep(5000);
 
 
     }
