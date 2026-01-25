@@ -1,0 +1,17 @@
+{
+  "manifest_version": 1,
+  "name": "幽境危战摔门-2",
+  "version": "1.0",
+  "description": "幽境危战摔门测试",
+  "authors": [
+    {
+      "name": "Bianyan",
+      "links": "https://github.com/bianyan"
+    }
+  ],
+  "tags": [
+    "幽境危战"
+  ],
+  "settings_ui": "settings.json",
+  "main": "main.js"
+}
