@@ -26,10 +26,29 @@
             log.error(`图像处理失败: ${error.message}`);
         }
     }
-    async function retry(){
-        keyPress("VK_ESCAPE");
-        await sleep(1500);
-        await clickByImg("retry");
+
+    async  function check(imgName=""){
+        let path;
+        try {
+            // 获取游戏截图
+            const captureRegion = captureGameRegion();
+            path = "assets/" + imgName + ".png";
+            // 模板匹配
+            const template = file.readImageMatSync(path);
+            const recognitionObject = RecognitionObject.TemplateMatch(template);
+            const result = captureRegion.Find(recognitionObject);
+
+            if (!result.IsEmpty()) {
+                //log.info(`找到目标，位置: (${result.X}, ${result.Y})`);
+                return true;
+            }
+            // 释放资源
+            template.Dispose();
+            captureRegion.Dispose();
+
+        } catch (error) {
+            log.error(`图像处理失败: ${error.message}`);
+        }
     }
 
     async function beginFight(test=100){
@@ -69,7 +88,7 @@
         //log.info("延迟为{testTime}",testTime);
 
         //第一次摔
-        await sleep(150);
+        await sleep(parseInt(settings.time2));
         keyDown("VK_LSHIFT")
         await sleep(100);
         keyUp("VK_LSHIFT");
@@ -129,7 +148,7 @@
         await sleep(100);
         keyUp("VK_E");
 
-        await sleep(1300);
+        await sleep(parseInt(settings.ti1));
 
         keyDown("VK_2")
         await sleep(100);
@@ -150,7 +169,8 @@
         await sleep(350);
         keyDown("VK_E");
         await sleep(100);
-        moveMouseBy(0,-6500);
+
+        moveMouseBy(parseInt(settings.qinX1),parseInt(settings.qinY1));
         await sleep(500);
         keyUp("VK_E");
         await sleep(400);
@@ -192,14 +212,13 @@
 
         keyDown("VK_E");
         await sleep(100);
-        moveMouseBy(-50,-5000);
+        moveMouseBy(parseInt(settings.qinX2),parseInt(settings.qinY2));
         await sleep(450);
         keyUp("VK_E");
 
 
 
-
-        await sleep(12000);
+        await sleep(parseInt(settings.time1));
 
 
 
@@ -450,13 +469,25 @@
     await clickByImg("begin");
     let tryTimes = parseInt(settings.tryTimes);
     log.info("尝试次数:{tryTimes}",tryTimes);
+    let a;
     for (let i = 0; i < tryTimes; i++) {
-        log.info("第{i}次实验",i+1);
-        let testTime= 0;
+        log.info("第{i}次实验", i + 1);
+        let testTime = 0;
         await beginFight(42);
-        await retry();
+        keyPress("VK_ESCAPE");
+        await sleep(1500);
+
+        if (await check("end")) {
+            log.info("哈哈哈哈哈哈！！！！")
+            log.info("哈哈哈哈哈哈！！！！")
+            log.info("哈哈哈哈哈哈！！！！")
+            a = "挑战成功！！！！！！！！";
+            log.info("第{i}次尝试 {a}", i,a);
+            break;
+        } else {
+            await clickByImg("retry");
+        }
     }
-    //await retry();
 
 
 
