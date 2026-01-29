@@ -1,4 +1,7 @@
 (async function() {
+    const team_1 = "方式一 (琴，钟离，岩主，提纳里)";
+    const team_2 = "方式二 (琴，钟离，岩主，欧洛仑)";
+    const team_3 = "方式三 (琴，钟离，岩主，任意风)";
 
     async function clickByImg(imgName=""){
         let path;
@@ -41,7 +44,19 @@
                 //log.info("第{i}次识别成功",i);
                 template.Dispose();
                 captureRegion.Dispose();
-                await fight2(test);
+                let team = settings.team;
+                log.info("战斗方式为: {team}",team);
+                if (team === team_1){
+                    await fight1(test);
+                }
+                if (team === team_2){
+                    await fight2(test);
+                }
+                if (team === team_3){
+                    await fight3(test);
+                }
+
+
                 break;
             }
             await sleep(50);
@@ -49,119 +64,142 @@
     }
 
     //这个是带提纳里的
-    async function fight(testTime=100){
+    async function fight1(testTime=100){
         log.info("---------开打开打！！！!!---------")
         //log.info("延迟为{testTime}",testTime);
 
         //第一次摔
-        await sleep(200);
+        await sleep(150);
         keyDown("VK_LSHIFT")
-        await sleep(500);
-        keyUp("VK_LSHIFT");
         await sleep(100);
-        keyDown("VK_LSHIFT")
-        await sleep(500);
         keyUp("VK_LSHIFT");
-
-        await sleep(400);
-        keyPress("VK_E");
-
-
+        await sleep(600);
+        keyDown("VK_LSHIFT")
+        await sleep(100);
+        keyUp("VK_LSHIFT");
 
         await sleep(800);
-        keyDown("VK_LBUTTON")
-        await sleep(1000);
-        keyUp("VK_LBUTTON");
-
-        await sleep(50);
-        keyPress("VK_3");
-        await sleep(200);
-        keyPress("VK_E");
-        await sleep(500);
-
-        await sleep(10);
-        keyDown("s");
-        await sleep(250);
-        keyPress("VK_SPACE");
-        await sleep(500);
-        keyUp("s");
-
+        keyDown("VK_E")
         await sleep(100);
+        keyUp("VK_E");
 
-        keyPress("VK_1");
-        await sleep(300);
-        keyPress("w");
-        await sleep(70);
-        keyPress("w");
-        await sleep(230);
+        await sleep(1000);
         keyDown("VK_LBUTTON")
-        await sleep(950);
+        await sleep(400);
         keyUp("VK_LBUTTON");
 
-        await sleep(300);
+        await sleep(500);
 
-        keyDown("VK_4")
-        await sleep(50);
-        keyUp("VK_4");
+        keyDown("VK_3")
+        await sleep(100);
+        keyUp("VK_3");
+
 
         await sleep(250);
 
         keyDown("VK_E")
-        await sleep(50);
+        await sleep(100);
         keyUp("VK_E");
 
-        await sleep(800);
+        await sleep(750);
+        keyDown("VK_1")
+        await sleep(150);
+        keyUp("VK_1");
 
-        keyPress("VK_2");
-        // await sleep(300);
-        // keyDown("s")
-        // await sleep(70);
-        // keyUp("s");
-        // await sleep(100);
-        // keyPress("w");
         await sleep(100);
-        keyPress("w");
-        await sleep(50);
-        keyPress("w");
+        keyDown("s");
+        await sleep(600);
+        keyUp("s");
+
+        await sleep(100);
+
+        keyDown("VK_LBUTTON")
+        await sleep(400);
+        keyUp("VK_LBUTTON");
+
+        await sleep(500);
+
+        keyDown("VK_4")
+        await sleep(100);
+        keyUp("VK_4");
+
+        await sleep(300);
+
+        keyDown("VK_E")
+        await sleep(100);
+        keyUp("VK_E");
+
+        await sleep(1300);
+
+        keyDown("VK_2")
+        await sleep(100);
+        keyUp("VK_2");
+
         await sleep(400);
 
+        keyDown("VK_E")
+        await sleep(100);
+        keyUp("VK_E");
 
-        keyPress("VK_E");
-        await sleep(50);
-        //moveMouseBy(0-testTime,0);
+        await sleep(400);
 
+        keyDown("VK_1")
+        await sleep(100);
+        keyUp("VK_1");
 
-        await sleep(900);
-
-        keyPress("VK_1");
         await sleep(350);
         keyDown("VK_E");
         await sleep(100);
-        moveMouseBy(0,-6000);
-        await sleep(400);
+        moveMouseBy(-50,-6500);
+        await sleep(500);
         keyUp("VK_E");
         await sleep(400);
-        await sleep(1000);
+
+        keyDown("VK_S")
+        await sleep(100);
+        keyDown("VK_LSHIFT")
+        await sleep(100);
+        keyUp("VK_LSHIFT");
+        await sleep(200);
+        keyUp("VK_S")
+        await sleep(100);
+        keyDown("VK_W")
+        await sleep(100);
+        keyUp("VK_W");
+
+
+
+        await sleep(200);
         keyPress("VK_2");
         await sleep(350);
         keyPress("VK_Q");
 
-        await sleep(1500);
+        await sleep(2500);
         middleButtonClick();
-        await sleep(3000);
+        await sleep(2000);
 
         keyPress("VK_1");
         await sleep(350);
+
+        keyDown("VK_W")
+        await sleep(100);
+        keyDown("VK_LSHIFT")
+        await sleep(100);
+        keyUp("VK_LSHIFT");
+        await sleep(200);
+        keyUp("VK_W")
+        await sleep(100);
+
         keyDown("VK_E");
         await sleep(100);
-        moveMouseBy(0,-6000);
-        await sleep(400);
+        moveMouseBy(-50,-5000);
+        await sleep(450);
         keyUp("VK_E");
 
 
 
 
-        await sleep(8000);
+        await sleep(10000);
 
 
 
@@ -285,6 +323,126 @@
 
 
         await sleep(5000);
+
+
+    }
+
+    async function fight3(testTime=100){
+        log.info("---------开打开打！！！!!---------")
+        //log.info("延迟为{testTime}",testTime);
+
+        //第一次摔
+        keyDown("w");
+        await sleep(1500);
+        keyUp("w");
+        await sleep(25);
+        keyDown("VK_E");
+        await sleep(100);
+        moveMouseBy(-200,-6000);
+        await sleep(400);
+        keyUp("VK_E");
+        await sleep(400);
+
+
+
+        middleButtonClick();
+        await sleep(100);
+        keyPress("VK_3");
+        await sleep(200);
+        leftButtonClick();
+        await sleep(500);
+        keyPress("VK_E");
+
+
+        await sleep(900);
+        keyPress("VK_1");
+        await sleep(100);
+
+        keyDown("s");
+        await sleep(700);
+        keyUp("s");
+
+        // await sleep(100);
+        // keyPress("w");
+        await sleep(100);
+        // keyPress("VK_E");
+        //
+        // await sleep(800);
+        keyDown("VK_LBUTTON");
+        await sleep(1000);
+        keyUp("VK_LBUTTON");
+
+        await sleep(100);
+        keyDown("s");
+        await sleep(250);
+        keyPress("VK_SPACE");
+        await sleep(100);
+        keyUp("s");
+
+
+        await sleep(200);
+        keyPress("VK_2");
+        await sleep(200);
+        keyDown("D");
+        //162
+        await sleep(162);
+        keyUp("D");
+        keyDown("w");
+        //钟离
+        await sleep(265);
+
+        keyUp("w");
+        await sleep(200);
+        keyPress("VK_E");
+
+        await sleep(800);
+
+
+        /*  keyDown("W");
+          await sleep(300);
+          keyUp("W");*/
+
+        keyDown("VK_LBUTTON");
+        await sleep(1000);
+        keyUp("VK_LBUTTON");
+
+
+        await sleep(200);
+        keyPress("VK_1");
+
+        await sleep(300);
+        keyDown("VK_E");
+        await sleep(100);
+        moveMouseBy(0,-8000);
+        await sleep(300);
+        keyUp("VK_E");
+        await sleep(400);
+
+        middleButtonClick();
+
+        await sleep(500);
+        keyPress("VK_2");
+
+        await sleep(300);
+        keyDown("s");
+        await sleep(100);
+        keyPress("VK_SPACE");
+        await sleep(200);
+        keyUp("s");
+        await sleep(600);
+        keyPress("VK_Q");
+
+
+
+
+
+
+
+
+        await sleep(6000);
+
+
+
 
 
     }
