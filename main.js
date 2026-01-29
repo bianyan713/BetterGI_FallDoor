@@ -150,7 +150,7 @@
         await sleep(350);
         keyDown("VK_E");
         await sleep(100);
-        moveMouseBy(-50,-6500);
+        moveMouseBy(0,-6500);
         await sleep(500);
         keyUp("VK_E");
         await sleep(400);
@@ -199,7 +199,7 @@
 
 
 
-        await sleep(10000);
+        await sleep(12000);
 
 
 
