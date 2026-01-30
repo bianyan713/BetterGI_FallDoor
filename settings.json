@@ -14,6 +14,16 @@
     "default": "20"
   },
   {
+    "name": "sex",
+    "type": "select",
+    "label": "男女主，默认女主",
+    "options": [
+      "女主",
+      "男主"
+    ],
+    "default": "女主"
+  },
+  {
     "name": "team",
     "type": "select",
     "label": "摔门队伍选择，默认一",
@@ -36,7 +46,18 @@
     "label": "方式一，战斗开始后延时，默认150",
     "default": "150"
   },
-
+  {
+    "name": "qinN1",
+    "type": "input-text",
+    "label": "《男主专属参数》琴左侧步时间，默认180",
+    "default": "180"
+  },
+  {
+    "name": "qinN2",
+    "type": "input-text",
+    "label": "《男主专属参数》琴后侧步时间，默认360",
+    "default": "360"
+  },
   {
     "name": "qinY1",
     "type": "input-text",

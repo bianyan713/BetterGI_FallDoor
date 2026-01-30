@@ -66,7 +66,15 @@
                 let team = settings.team;
                 log.info("战斗方式为: {team}",team);
                 if (team === team_1){
-                    await fight1(test);
+                    if("女主" === settings.sex){
+                        log.info("女主")
+                        await fight11(test);
+                    }
+                    if("男主" === settings.sex){
+                        log.info("男主")
+                        await fight12(test);
+                    }
+
                 }
                 if (team === team_2){
                     await fight2(test);
@@ -82,8 +90,8 @@
         }
     }
 
-    //这个是带提纳里的
-    async function fight1(testTime=100){
+    //这个是带提纳里的女主
+    async function fight11(testTime=100){
         log.info("---------开打开打！！！!!---------")
         //log.info("延迟为{testTime}",testTime);
 
@@ -134,6 +142,203 @@
         keyDown("s");
         await sleep(600);
         keyUp("s");
+
+        await sleep(100);
+
+        keyDown("VK_LBUTTON")
+        await sleep(400);
+        keyUp("VK_LBUTTON");
+
+        await sleep(500);
+
+
+        keyDown("VK_4")
+        await sleep(100);
+        keyUp("VK_4");
+
+        await sleep(300);
+
+        keyDown("VK_E")
+        await sleep(100);
+        keyUp("VK_E");
+
+        await sleep(parseInt(settings.ti1));
+
+        keyDown("VK_2")
+        await sleep(100);
+        keyUp("VK_2");
+
+        await sleep(400);
+
+        keyDown("VK_E")
+        await sleep(100);
+        keyUp("VK_E");
+
+        await sleep(400);
+
+        keyDown("VK_1")
+        await sleep(100);
+        keyUp("VK_1");
+
+        await sleep(350);
+        keyDown("VK_E");
+        await sleep(100);
+
+        moveMouseBy(parseInt(settings.qinX1),parseInt(settings.qinY1));
+        await sleep(500);
+        keyUp("VK_E");
+        await sleep(400);
+
+        keyDown("VK_S")
+        await sleep(100);
+        keyDown("VK_LSHIFT")
+        await sleep(100);
+        keyUp("VK_LSHIFT");
+        await sleep(200);
+        keyUp("VK_S")
+        await sleep(100);
+        keyDown("VK_W")
+        await sleep(100);
+        keyUp("VK_W");
+
+
+
+        await sleep(200);
+        keyPress("VK_2");
+        await sleep(350);
+        keyPress("VK_Q");
+
+        await sleep(2500);
+        moveMouseTo(100,100);
+        middleButtonClick();
+        await sleep(2000);
+
+        keyPress("VK_1");
+        await sleep(350);
+
+        keyDown("VK_W")
+        await sleep(100);
+        //keyDown("VK_LSHIFT")
+        //100
+        await sleep(parseInt(settings.qin1));
+        //keyUp("VK_LSHIFT");
+        await sleep(200);
+        keyUp("VK_W")
+        await sleep(100);
+
+        keyDown("VK_E");
+        await sleep(100);
+        moveMouseBy(parseInt(settings.qinX2),parseInt(settings.qinY2));
+        await sleep(450);
+        keyUp("VK_E");
+
+
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+
+
+
+    }
+
+    //这个是带提纳里的男主
+    async function fight12(testTime=100){
+        log.info("---------开打开打！！！!!---------")
+        //log.info("延迟为{testTime}",testTime);
+
+        //第一次摔
+        await sleep(parseInt(settings.time2));
+        keyDown("VK_LSHIFT")
+        await sleep(100);
+        keyUp("VK_LSHIFT");
+        await sleep(600);
+        keyDown("VK_LSHIFT")
+        await sleep(100);
+        keyUp("VK_LSHIFT");
+
+        await sleep(800);
+        keyDown("VK_E")
+        await sleep(100);
+        keyUp("VK_E");
+
+        await sleep(500);
+        keyDown("VK_3")
+        await sleep(100);
+        keyUp("VK_3");
+        await sleep(300);
+        keyDown("VK_LBUTTON")
+        await sleep(500);
+        keyUp("VK_LBUTTON");
+
+        await sleep(500);
+        keyDown("VK_1")
+        await sleep(100);
+        keyUp("VK_1");
+
+        await sleep(400);
+        keyDown("VK_LBUTTON")
+        await sleep(400);
+        keyUp("VK_LBUTTON");
+
+        await sleep(500);
+
+        keyDown("VK_3")
+        await sleep(100);
+        keyUp("VK_3");
+
+
+        await sleep(300);
+
+        keyDown("VK_E")
+        await sleep(100);
+        keyUp("VK_E");
+
+        await sleep(750);
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        keyDown("VK_1")
+        await sleep(150);
+        keyUp("VK_1");
+
+        await sleep(100);
+        keyDown("s");
+        keyDown("a");
+        await sleep(parseInt(settings.qinN1));
+        keyUp("a");
+        await sleep(parseInt(settings.qinN2));
+        keyUp("s");
+
+
 
         await sleep(100);
 
