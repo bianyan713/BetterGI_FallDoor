@@ -121,6 +121,11 @@
         keyUp("VK_E");
 
         await sleep(750);
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
         keyDown("VK_1")
         await sleep(150);
         keyUp("VK_1");
@@ -137,6 +142,7 @@
         keyUp("VK_LBUTTON");
 
         await sleep(500);
+
 
         keyDown("VK_4")
         await sleep(100);
@@ -195,6 +201,7 @@
         keyPress("VK_Q");
 
         await sleep(2500);
+        moveMouseTo(100,100);
         middleButtonClick();
         await sleep(2000);
 
@@ -203,9 +210,10 @@
 
         keyDown("VK_W")
         await sleep(100);
-        keyDown("VK_LSHIFT")
-        await sleep(100);
-        keyUp("VK_LSHIFT");
+        //keyDown("VK_LSHIFT")
+        //100
+        await sleep(parseInt(settings.qin1));
+        //keyUp("VK_LSHIFT");
         await sleep(200);
         keyUp("VK_W")
         await sleep(100);
@@ -218,8 +226,34 @@
 
 
 
-        await sleep(parseInt(settings.time1));
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
 
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
+
+        if (await check("shield")) {
+            a = "检测到开盾,挑战失败！";
+            log.info("{a}",a);
+            return;
+        }
+        await sleep(Math.ceil(parseInt(settings.time1)/4));
 
 
 

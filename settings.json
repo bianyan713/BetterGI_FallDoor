@@ -66,6 +66,12 @@
     "type": "input-text",
     "label": "提纳里e后延迟时间，默认1250",
     "default": "1250"
+  },
+  {
+    "name": "qin1",
+    "type": "input-text",
+    "label": "琴走向柱子的时间，默认400，二命琴适当减少",
+    "default": "400"
   }
 
   ]
