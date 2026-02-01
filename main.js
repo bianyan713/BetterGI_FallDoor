@@ -211,7 +211,7 @@
         await sleep(2500);
         moveMouseTo(100,100);
         middleButtonClick();
-        await sleep(2000);
+        await sleep(parseInt(settings.shiHuaTime)-2000);
 
         if("是" === settings.zhongLi){
             await sleep(2000);
@@ -412,7 +412,7 @@
         await sleep(2500);
         moveMouseTo(100,100);
         middleButtonClick();
-        await sleep(2000);
+        await sleep(parseInt(settings.shiHuaTime)-2000);
 
         if("是" === settings.zhongLi){
             await sleep(2000);
