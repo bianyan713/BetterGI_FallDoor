@@ -14,6 +14,16 @@
     "default": "20"
   },
   {
+    "name": "zhongLi",
+    "type": "select",
+    "label": "是否是四命及以上钟离，默认否",
+    "options": [
+      "否",
+      "是"
+    ],
+    "default": "否"
+  },
+  {
     "name": "sex",
     "type": "select",
     "label": "男女主，默认女主",

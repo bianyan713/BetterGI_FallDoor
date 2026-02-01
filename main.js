@@ -213,6 +213,10 @@
         middleButtonClick();
         await sleep(2000);
 
+        if("是" === settings.zhongLi){
+            await sleep(2000);
+        }
+
         keyPress("VK_1");
         await sleep(350);
 
@@ -409,6 +413,10 @@
         moveMouseTo(100,100);
         middleButtonClick();
         await sleep(2000);
+
+        if("是" === settings.zhongLi){
+            await sleep(2000);
+        }
 
         keyPress("VK_1");
         await sleep(350);
