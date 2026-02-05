@@ -16,6 +16,9 @@
 
             if (!result.IsEmpty()) {
                 //log.info(`找到目标，位置: (${result.X}, ${result.Y})`);
+                if("retry" === imgName){
+                    keyPress("VK_NUMPAD5");
+                }
                 result.Click();
             }
             // 释放资源
@@ -55,7 +58,7 @@
         await sleep(4500);
         const template = file.readImageMatSync("assets/qinE.png");
         const recognitionObject = RecognitionObject.TemplateMatch(template);
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < parseInt(settings.startTime1); i++) {
             let captureRegion = captureGameRegion();  // 获取一张截图
             let res = captureRegion.Find(recognitionObject);
             if (!res.isEmpty()) {
@@ -187,7 +190,12 @@
         moveMouseBy(parseInt(settings.qinX1),parseInt(settings.qinY1));
         await sleep(500);
         keyUp("VK_E");
-        await sleep(400);
+
+        await sleep(200);
+        keyPress("VK_NUMPAD1");
+        await sleep(200);
+
+
 
         keyDown("VK_S")
         await sleep(100);
@@ -406,6 +414,7 @@
 
         await sleep(200);
         keyPress("VK_2");
+        keyPress("VK_NUMPAD1");
         await sleep(350);
         keyPress("VK_Q");
 
@@ -713,6 +722,7 @@
 
     }
 
+    keyPress("VK_NUMPAD4");
     await clickByImg("begin");
     let tryTimes = parseInt(settings.tryTimes);
     log.info("尝试次数:{tryTimes}",tryTimes);
@@ -725,6 +735,7 @@
         await sleep(1500);
 
         if (await check("end")) {
+            keyPress("VK_NUMPAD6");
             log.info("哈哈哈哈哈哈！！！！")
             log.info("哈哈哈哈哈哈！！！！")
             log.info("哈哈哈哈哈哈！！！！")
@@ -732,6 +743,7 @@
             log.info("第{i}次尝试 {a}", i,a);
             break;
         } else {
+
             await clickByImg("retry");
         }
     }

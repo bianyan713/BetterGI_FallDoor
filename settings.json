@@ -57,6 +57,12 @@
     "default": "150"
   },
   {
+    "name": "startTime1",
+    "type": "input-text",
+    "label": "如果不能自动开始，增加这个值",
+    "default": "50"
+  },
+  {
     "name": "qinN1",
     "type": "input-text",
     "label": "《男主专属参数》琴左侧步时间，默认180",
